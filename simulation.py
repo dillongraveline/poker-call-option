@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 By: Dillon Graveline
 """
 
-premium = 0.25
-entries = 90
-rake = 0.02
-places_paid = 13
-your_ranking = 0.8
+premium = 0.02
+entries = 990
+rake = 0.00
+places_paid = 50
+your_ranking = 0.6
 
 prize_pool = (premium - rake) * entries
 
@@ -23,9 +23,9 @@ for i in range(entries):
 
 payoff[places_paid:] = [0 for i in range(len(payoff[places_paid:]))]
 
-iterations = 10000
+iterations = 100000
 
-distribution = np.random.normal(0.1 * entries, entries * 0.3, iterations)
+distribution = np.random.normal(your_ranking * entries, entries * 0.3, iterations)
 
 distribution[distribution > entries] = entries
 distribution[distribution < 0] = 0
