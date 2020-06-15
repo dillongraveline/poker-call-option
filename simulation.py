@@ -10,7 +10,7 @@ premium = 0.02
 entries = 990
 rake = 0.00
 places_paid = 50
-your_ranking = 0.6
+your_ranking = 0.2
 
 prize_pool = (premium - rake) * entries
 
@@ -23,9 +23,9 @@ for i in range(entries):
 
 payoff[places_paid:] = [0 for i in range(len(payoff[places_paid:]))]
 
-iterations = 100000
+iterations = 50000
 
-distribution = np.random.normal(your_ranking * entries, entries * 0.3, iterations)
+distribution = np.random.normal(your_ranking * entries, entries * 0.4, iterations)
 
 distribution[distribution > entries] = entries
 distribution[distribution < 0] = 0
